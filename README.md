@@ -31,11 +31,12 @@ By default this directory is:
 Packaging it
 --------------
 
-Building on Windows, Linux or MacOS should produce installers for the platform you built on, in the /out directory.
+Building on Windows, Linux or MacOS should produce installers for the platform you built on.
 
 To build, do:
 
 ```
-npm make
+npm run make
 ```
 
+Then look in the directory out/ for the built installer(s).
