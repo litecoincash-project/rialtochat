@@ -1,7 +1,7 @@
 Rialto Chat
 ===========================================
 
-Rialto Chat is an Electron chat client for the LCC Rialto network. As well as being the current official Rialto client, it's a the reference which demonstrates Rialto RPC API usage.
+Rialto Chat is an Electron chat client for the LCC Rialto network. As well as being the current official Rialto client, it's a reference which demonstrates Rialto RPC API usage.
 
 Running it
 --------------
