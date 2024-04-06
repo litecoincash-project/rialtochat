@@ -1,0 +1,180 @@
+.drag-area {
+    -webkit-app-region: drag;
+}
+
+#chatContainer {
+    /*background-image: url('../img/logo-trans.png');
+    background-size: cover;
+    image-rendering: pixelated;*/
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+#chatList {
+    overflow-y: auto;
+    height: calc(100% - 108px);
+}
+
+.chatHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 53px;
+    border-bottom: 1px solid #ddd;
+    padding-left: 16px;
+}
+
+.chatHeader h3 {
+    margin-top: 8px;
+}
+
+.chatButtonsContainer {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+}
+
+.chatMessages {
+    position:absolute;
+    top: 64px;
+    left: 0;
+    height: calc(100% - 100px);
+    width: 100%;
+    overflow-y: auto;
+    margin: 0;
+}
+
+.chatInputContainer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 8px);
+    height: 36px;
+    margin: 0 4px;
+}
+
+#sidebarBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+}
+
+.chattingAsLabel {
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #eee;
+}
+
+.receivedMessage, .sentMessage {
+    position: relative;
+    display: inline-block;
+    max-width: 70%;
+    margin: 4px 8px;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    clear: both;
+    text-wrap: balance;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.receivedMessage {
+    background-color: rgb(221, 236, 255);
+    float: left;
+}
+
+.sentMessage {
+    background-color: #dfd;
+    float: right;
+}
+
+.messageTimestamp {
+    font-size: 11px;
+    color: #888;
+}
+
+.chatSelector * {
+    pointer-events:none;
+}
+
+.activeChat {
+    background-color: #ddd;
+}
+
+.highlightedChat {
+    font-weight: bolder;
+}
+
+#bottomButtonsParent {
+    text-align: center;
+}
+
+#blockListModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 100;
+}
+
+.modal-header {
+    background-color: #f1f1f1;
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-title {
+    font-size: 24px;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 16px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    overflow-y: auto;
+    max-height: calc(100% - 180px);
+}
+
+.modal-footer {
+    background-color: #f1f1f1;
+    padding: 16px;
+    height: 48px;
+}
+
+.blockListRow {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.blockListRow .nick {
+    float: left;
+}
+
+.blockListRow button {
+    float: right;
+}
+
+.blockListRow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.walletIsLocked {
+    color: #f00 !important;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Rialto Chat</title>
+    <link rel="stylesheet" href="css/photon.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="window">
+        <header class="toolbar toolbar-header drag-area">
+            <h1 class="title">
+                <span class="icon icon-bubble"></span> Rialto
+                <div style="float:right;">
+                    <div class="btn-group">
+                        <button class="btn btn-default" id="minimiseWindow">
+                            <span class="icon icon-minus"></span>
+                        </button>
+                        <button class="btn btn-default" id="closeWindow">
+                            <span class="icon icon-cancel"></span>
+                        </button>
+                    </div>
+                </div>
+            </h1>
+        </header>
+        <div class="window-content">
+            <div class="pane-group">
+                <div class="pane-sm sidebar">
+                    <ul class="list-group" id="chatList">
+                        <li class="list-group-header">
+                            <input class="form-control" type="text" id="newChatNick" placeholder="Find a Rialto user">
+                        </li>
+                    </ul>
+
+                    <ul class="list-group" id="sidebarBottom">
+                        <li class="list-group-item">
+                            <div class="chattingAsLabel">Chatting as</div>
+                            <select class="form-control" id="sendingNick"><option value="">Nobody</option></select>
+                        </li>
+                        <li class="list-group-item" id="bottomButtonsParent">
+                            <div class="btn-group">
+                                <button class="btn btn-default unlockWallet" id="unlockWalletBtn" title="Unlock wallet">
+                                    <span class="icon icon-lock-open unlockWallet" id="unlockWalletIcon"></span>
+                                </button>
+                                <button class="btn btn-default registerNick" title="Register a nick">
+                                    <span class="icon icon-user-add registerNick"></span>
+                                </button>
+                                <button class="btn btn-default manageBlocklist" title="Manage blocklist">
+                                    <span class="icon icon-block manageBlocklist"></span>
+                                </button>
+                                <button class="btn btn-default refreshMyNicks" title="Refresh my registered nicks">
+                                    <span class="icon icon-cw refreshMyNicks"></span>
+                                </button>
+                                <button class="btn btn-default rebuildWhitePages" title="Rebuild whitepages">
+                                    <span class="icon icon-book rebuildWhitePages"></span>
+                                </button>
+                            </div>
+                        </li>                        
+                    </ul>
+                </div>
+                <div class="pane"><div id="chatContainer"></div></div>
+            </div>
+        </div>
+    </div>
+    <div id="blockListModal">
+        <div class="modal-header">
+            <div class="modal-title">Blocklist</div>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group" id="blockList"></ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="blockListModalClose">Close</button>
+        </div>
+    </div>
+    <script type="module" src="node_modules/minidenticons/minidenticons.min.js"></script>
+    <script type="module" src="renderer.js"></script>
+</body>
+</html>
