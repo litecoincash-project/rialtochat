@@ -137,9 +137,12 @@ ipcMain.on("close-app", (event) => {
 
 // Minimise to tray
 ipcMain.on("minimise-app", (event) => {
-    appWindow.hide();	// Minimise to tray: Hide the window and set context menu
-	if (process.platform !== 'darwin')
+	if (process.platform === 'darwin')
+		appWindow.minimize();
+	else {
+		appWindow.hide();	// Minimise to tray: Hide the window and set context menu
 		createAppIcon();
+	}
 });
 
 // ****************************************************************
