@@ -317,7 +317,7 @@ const IncomingMessage = async (fromNick, toNick, message, timestamp) => {
     // Play a ding if either chat window is invisible, or this is not the active chat, or the window is not focused
     const windowFocused = await window.api.isWindowFocused();
     console.log("Window focused: ", windowFocused);
-    if (chatWindow.style.display === "none" || !chatSelector.classList.contains("activeChat") /*|| !windowFocused*/)
+    if (!windowFocused)
         new Audio("sounds/ding.ogg").play();
 }
 

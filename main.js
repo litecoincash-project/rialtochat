@@ -79,16 +79,8 @@ const createAppIcon = () => {
 // Entrypoint
 app.whenReady().then(() => {
 	// Don't run more than one instance
-	const gotTheLock = app.requestSingleInstanceLock();
-	if (!gotTheLock) {
-		alert.fireFrameless({
-			title: "Rialto already running",
-			text: "Rialto is already running; only one instance can run at a time.",
-			icon: 'info',
-			buttons: ['OK']
-		}, null, true, false);
+	if (!app.requestSingleInstanceLock())
 		app.quit();
-	}
 
 	// Create/load config	
 	const settingsPath = path.join(app.getPath('userData'), 'settings.json');
@@ -136,6 +128,9 @@ ipcMain.on("close-app", (event) => {
 
 // Minimise to tray
 ipcMain.on("minimise-app", (event) => {
+	if (process.platform === 'darwin')
+		return;
+
     appWindow.hide();	// Minimise to tray: Hide the window and set context menu
 	createAppIcon();
 });
