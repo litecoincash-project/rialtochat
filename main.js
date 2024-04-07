@@ -125,9 +125,9 @@ app.whenReady().then(() => {
 // Window control
 // ****************************************************************
 
-// Handle window close (on macos don't quit app)
+// Handle window close
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit();
+    app.quit();
 });
 
 // Close 
