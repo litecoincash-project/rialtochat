@@ -314,10 +314,9 @@ const IncomingMessage = async (fromNick, toNick, message, timestamp) => {
     if (!chatSelector.classList.contains("activeChat"))
         chatSelector.classList.add("highlightedChat");
 
-    // Play a ding if either chat window is invisible, or this is not the active chat, or the window is not focused
+    // Play a ding if either chat window is not focused, or this is not the active chat
     const windowFocused = await window.api.isWindowFocused();
-    console.log("Window focused: ", windowFocused);
-    if (!windowFocused)
+    if (!windowFocused || !chatSelector.classList.contains("activeChat"))
         new Audio("sounds/ding.ogg").play();
 }
 

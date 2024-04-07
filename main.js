@@ -29,6 +29,7 @@ let clientArgs = {};
 // ****************************************************************
 
 // App window creation
+let focused = true;
 const createWindow = () => {
     appWindow = new BrowserWindow({
         width: 800,
@@ -40,6 +41,14 @@ const createWindow = () => {
 		autoHideMenuBar: true,
 		logo: path.join(__dirname, 'img/logo.png')
     });
+
+	appWindow.on('focus', () => {
+		focused = true;
+	})
+
+	appWindow.on('blur', () => {
+		focused = false;
+	})
 
 	// Fix notification titles
 	if (process.platform === 'win32') {
@@ -128,18 +137,9 @@ ipcMain.on("close-app", (event) => {
 
 // Minimise to tray
 ipcMain.on("minimise-app", (event) => {
-	if (process.platform === 'darwin')
-		return;
-
     appWindow.hide();	// Minimise to tray: Hide the window and set context menu
-	createAppIcon();
-});
-
-// Check if window is focused
-ipcMain.handle("is-window-focused", (e) => {
-	return new Promise((resolve, reject) => {
-		resolve(appWindow.isFocused());
-	});
+	if (process.platform !== 'darwin')
+		createAppIcon();
 });
 
 // ****************************************************************
@@ -157,6 +157,13 @@ ipcMain.handle("no-nick-message", (e) => {
 		}, null, true, false).then(() => {
 			resolve(true);
 		});
+	});
+});
+
+// Get window focused state
+ipcMain.handle("is-window-focused", (e) => {
+	return new Promise((resolve, reject) => {
+		resolve(focused);
 	});
 });
 

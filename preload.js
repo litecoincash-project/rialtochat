@@ -15,9 +15,6 @@ contextBridge.exposeInMainWorld("api", {
 	minimiseWindow: () => {
 		return ipcRenderer.send("minimise-app");
 	},
-	isWindowFocused: () => {
-		return ipcRenderer.send("is-window-focused");
-	},
 
 	// ****************************************************************
 	// Helpers
@@ -25,7 +22,10 @@ contextBridge.exposeInMainWorld("api", {
 	showNoNickMessage: () => {
 		return ipcRenderer.invoke("no-nick-message");
 	},
-	
+	isWindowFocused: () => {
+		return ipcRenderer.invoke("is-window-focused");
+	},
+
 	// ****************************************************************
 	// Rialto Messaging API
 	// ****************************************************************
